@@ -1,9 +1,11 @@
 import 'package:clean_architecture/features/posts/domain/entities/post.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class PostsRespositories{
-   Future <List<Post>> getAllPosts();
-   Future<bool> deletePost(int id);
-   Future<bool> updatePost(Post post);
-   Future<bool> addPost(Post post);
+import '../../../../core/error/failure.dart';
+
+abstract class PostsRepositories{
+   Future <Either<Failure,List<Post>>> getAllPosts();
+   Future<Either<Failure,Unit>> deletePost(int id);
+   Future<Either<Failure,Unit>> updatePost(Post post);
+   Future<Either<Failure,Unit>> addPost(Post post);
 }
