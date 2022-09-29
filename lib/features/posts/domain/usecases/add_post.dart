@@ -4,7 +4,7 @@ import 'package:clean_architecture/features/posts/domain/repositories/posts_repo
 import 'package:dartz/dartz.dart';
 
 class AddPostUseCase{
-  final PostsRepositories repositories;
+  final PostsRepository repositories;
   AddPostUseCase(this.repositories);
   Future<Either<Failure,Unit>> call(Post post)async {
     return await repositories.addPost(post);
